@@ -35,6 +35,7 @@ export type Dict = {
     portfolio: string;
     whyMe: string;
     packages: string;
+    beyondWork: string;
     contact: string;
     cta: string;
     languageLabel: string;
@@ -89,6 +90,15 @@ export type Dict = {
     cta: string;
     links: { label: string; value: string }[];
   };
+  beyondWork: {
+    label: string;
+    heading: string;
+    headingItalic: string;
+    body: string[];
+    xhsLabel: string;
+    xhsCta: string;
+    xhsUrl: string;
+  };
   footer: string;
 };
 
@@ -102,6 +112,7 @@ export const translations: Record<LanguageCode, Dict> = {
       portfolio: "Work",
       whyMe: "Why Me",
       packages: "Packages",
+      beyondWork: "Beyond",
       contact: "Contact",
       cta: "Let's talk",
       languageLabel: "Language",
@@ -117,6 +128,7 @@ export const translations: Record<LanguageCode, Dict> = {
         "Content & Social Media",
         "Landing Pages",
         "Listings & Local Growth",
+        "SaaS Agency Ops",
         "Bilingual Copy",
         "Inbound Tourism",
       ],
@@ -139,7 +151,7 @@ export const translations: Record<LanguageCode, Dict> = {
     },
     services: {
       label: "Services",
-      heading: "Three focused ways I can support your business.",
+      heading: "Four focused ways I can support your business.",
       items: [
         {
           key: "content",
@@ -155,6 +167,11 @@ export const translations: Record<LanguageCode, Dict> = {
           key: "listing",
           title: "Listings & Local Business Growth",
           desc: "Cleaner titles, sharper selling points, better descriptions, FAQs, and CTAs for your service pages or platform listings — with a short, practical action checklist.",
+        },
+        {
+          key: "saas",
+          title: "SaaS Agency Operations (代运营操盘)",
+          desc: "Hands-on agency-style operations support for SaaS companies: user-acquisition campaigns, content & nurture systems, growth experiments, onboarding copy, and monthly performance reporting.",
         },
       ],
     },
@@ -228,26 +245,32 @@ export const translations: Record<LanguageCode, Dict> = {
     packages: {
       label: "Service Packages",
       heading: "Simple packages to start with.",
-      subheading: "Custom scopes welcome — these are just a clear starting point.",
+      subheading: "Based on a $30/hour rate. Custom scopes welcome — these are just a clear starting point.",
       fromLabel: "From",
       items: [
         {
           key: "audit",
           name: "Listing Audit",
-          price: "$300",
-          desc: "Review one listing or service page; improve title, selling points, description, FAQ, and CTA; provide a short, practical action checklist.",
+          price: "$99",
+          desc: "Review one listing or service page; improve title, selling points, description, FAQ, and CTA; provide a short, practical action checklist. (~3-4 hours)",
         },
         {
           key: "sprint",
           name: "Landing Page & Copy Sprint",
-          price: "$800",
-          desc: "One-page structure; English or bilingual copy; mobile-first content layout; CTA and inquiry flow suggestions.",
+          price: "$249",
+          desc: "One-page structure; English or bilingual copy; mobile-first content layout; CTA and inquiry flow suggestions. (~8-10 hours)",
         },
         {
           key: "monthly",
           name: "Monthly Content Support",
-          price: "$1,500/month",
-          desc: "Monthly content plan; captions and post ideas; Instagram / Xiaohongshu direction; basic performance review.",
+          price: "$299/month",
+          desc: "Monthly content plan (12-15 pieces); captions and post ideas; Instagram / Xiaohongshu direction; basic performance review. (~10-12 hours/month)",
+        },
+        {
+          key: "saas",
+          name: "SaaS Operations Retainer",
+          price: "$500/month",
+          desc: "Agency-style operations support for SaaS: user-acquisition campaigns, content & nurture systems, growth experiments, monthly performance report.",
         },
       ],
     },
@@ -265,6 +288,18 @@ export const translations: Record<LanguageCode, Dict> = {
         { label: "Instagram", value: "@portfolio" },
       ],
     },
+    beyondWork: {
+      label: "Beyond Work",
+      heading: "Off the clock,",
+      headingItalic: "I'm usually moving.",
+      body: [
+        "I'm a fitness enthusiast and share workouts on Xiaohongshu — 11.1K likes & saves so far, and still going.",
+        "I play tennis, ski Hokkaido winters, and take photos wherever I go. Living in Sapporo means I'm always trying local small businesses — and mentally rewriting their copy.",
+      ],
+      xhsLabel: "Xiaohongshu",
+      xhsCta: "Visit my profile",
+      xhsUrl: "https://xhslink.com/m/3g0bjokEbea",
+    },
     footer: "Small-business marketing support from Sapporo, Japan.",
   },
 
@@ -277,6 +312,7 @@ export const translations: Record<LanguageCode, Dict> = {
       portfolio: "案例",
       whyMe: "为什么是我",
       packages: "套餐",
+      beyondWork: "工作之外",
       contact: "联系",
       cta: "聊一聊",
       languageLabel: "语言",
@@ -288,7 +324,7 @@ export const translations: Record<LanguageCode, Dict> = {
         "我帮小企业把服务,变成顾客一眼就能看懂、并愿意采取行动的网站、社媒内容和商品/服务页。",
       ctaServices: "查看服务",
       ctaWork: "看案例示例",
-      tags: ["内容与社媒", "落地页", "商品页与本地增长", "双语文案", "入境旅游"],
+      tags: ["内容与社媒", "落地页", "商品页与本地增长", "SaaS 代运营", "双语文案", "入境旅游"],
     },
     about: {
       label: "关于",
@@ -308,7 +344,7 @@ export const translations: Record<LanguageCode, Dict> = {
     },
     services: {
       label: "服务",
-      heading: "三个我可以稳定支持的方向。",
+      heading: "四个我可以稳定支持的方向。",
       items: [
         {
           key: "content",
@@ -324,6 +360,11 @@ export const translations: Record<LanguageCode, Dict> = {
           key: "listing",
           title: "商品页与本地业务增长",
           desc: "更准确的标题、更利落的卖点、更可读的描述、FAQ 与 CTA —— 配一份简短可执行的优化清单。",
+        },
+        {
+          key: "saas",
+          title: "SaaS 代运营操盘",
+          desc: "为 SaaS 公司提供代运营式落地支持:用户增长投放、内容与孵化系统、增长实验、注册流程文案、月度数据复盘。",
         },
       ],
     },
@@ -390,26 +431,32 @@ export const translations: Record<LanguageCode, Dict> = {
     packages: {
       label: "服务套餐",
       heading: "简单的起点套餐。",
-      subheading: "可按需定制 —— 下面只是一个清晰的起点。",
+      subheading: "按 $30 / 小时计费。可按需定制 —— 下面只是一个清晰的起点。",
       fromLabel: "起价",
       items: [
         {
           key: "audit",
           name: "商品页 / 服务页诊断",
-          price: "$300",
-          desc: "针对一个商品页或服务页:优化标题、卖点、描述、FAQ 与 CTA,并给出一份简短的行动清单。",
+          price: "$99",
+          desc: "针对一个商品页或服务页:优化标题、卖点、描述、FAQ 与 CTA,并给出一份简短的行动清单。(约 3-4 小时)",
         },
         {
           key: "sprint",
           name: "落地页与文案冲刺",
-          price: "$800",
-          desc: "单页结构、英文或双语文案、移动端优先布局、CTA 与询盘流程建议。",
+          price: "$249",
+          desc: "单页结构、英文或双语文案、移动端优先布局、CTA 与询盘流程建议。(约 8-10 小时)",
         },
         {
           key: "monthly",
           name: "月度内容支持",
-          price: "$1,500 / 月",
-          desc: "月度内容计划、文案与发文 idea、Instagram / 小红书方向、基础数据回顾。",
+          price: "$299 / 月",
+          desc: "月度内容计划(12-15 条)、文案与发文 idea、Instagram / 小红书方向、基础数据回顾。(约 10-12 小时 / 月)",
+        },
+        {
+          key: "saas",
+          name: "SaaS 代运营月度",
+          price: "$500 / 月",
+          desc: "为 SaaS 公司提供代运营式支持:用户增长投放、内容与孵化系统、增长实验、注册流程文案、月度数据复盘。",
         },
       ],
     },
@@ -426,6 +473,18 @@ export const translations: Record<LanguageCode, Dict> = {
         { label: "Instagram", value: "@portfolio" },
       ],
     },
+    beyondWork: {
+      label: "工作之外",
+      heading: "工作之外,",
+      headingItalic: "我基本都在动。",
+      body: [
+        "我是健身爱好者,也是小红书健身博主 —— 目前已积累 11.1K 赞与收藏,还在持续更新。",
+        "平时打网球、冬天在北海道滑雪、随手街拍与旅行摄影。住在札幌,喜欢探各种本地小店 —— 然后在心里默默帮它们重写文案。",
+      ],
+      xhsLabel: "小红书",
+      xhsCta: "看看我的主页",
+      xhsUrl: "https://xhslink.com/m/3g0bjokEbea",
+    },
     footer: "来自日本札幌的小企业营销支持。",
   },
 
@@ -438,6 +497,7 @@ export const translations: Record<LanguageCode, Dict> = {
       portfolio: "実績",
       whyMe: "選ばれる理由",
       packages: "パッケージ",
+      beyondWork: "オフタイム",
       contact: "お問い合わせ",
       cta: "話してみる",
       languageLabel: "言語",
@@ -449,7 +509,7 @@ export const translations: Record<LanguageCode, Dict> = {
         "サービスを、お客様がすぐに理解して行動に移せる Web サイト・SNS・商品/サービスページへ。小さなビジネスのために、わかりやすい言葉でお手伝いします。",
       ctaServices: "サービスを見る",
       ctaWork: "実績を見る",
-      tags: ["コンテンツ & SNS", "ランディング", "商品ページ & ローカル", "バイリンガル", "インバウンド"],
+      tags: ["コンテンツ & SNS", "ランディング", "商品ページ & ローカル", "SaaS 代理運用", "バイリンガル", "インバウンド"],
     },
     about: {
       label: "プロフィール",
@@ -469,7 +529,7 @@ export const translations: Record<LanguageCode, Dict> = {
     },
     services: {
       label: "サービス",
-      heading: "深く入り込めるのは、この 3 つです。",
+      heading: "深く入り込めるのは、この 4 つです。",
       items: [
         {
           key: "content",
@@ -485,6 +545,11 @@ export const translations: Record<LanguageCode, Dict> = {
           key: "listing",
           title: "商品ページ & ローカル集客",
           desc: "タイトル、訴求ポイント、説明文、FAQ、CTA を整理し、すぐ動ける短い改善チェックリスト付きでお渡しします。",
+        },
+        {
+          key: "saas",
+          title: "SaaS 代理運用 (代運営)",
+          desc: "SaaS 企業向けの代理運用型サポート:ユーザー獲得キャンペーン、コンテンツ / ナーチャリング設計、グロース実験、オンボーディングコピー、月次レポートまで。",
         },
       ],
     },
@@ -552,26 +617,32 @@ export const translations: Record<LanguageCode, Dict> = {
     packages: {
       label: "サービスパッケージ",
       heading: "始めやすいシンプルなパッケージ。",
-      subheading: "カスタムも歓迎 —— あくまで分かりやすい出発点です。",
+      subheading: "時給 $30 ベース。カスタムも歓迎 —— あくまで分かりやすい出発点です。",
       fromLabel: "From",
       items: [
         {
           key: "audit",
           name: "リスティング診断",
-          price: "$300",
-          desc: "1 ページのレビュー:タイトル・訴求・説明文・FAQ・CTA を改善し、短い改善チェックリストを納品。",
+          price: "$99",
+          desc: "1 ページのレビュー:タイトル・訴求・説明文・FAQ・CTA を改善し、短い改善チェックリストを納品。(約 3-4 時間)",
         },
         {
           key: "sprint",
           name: "LP & コピー スプリント",
-          price: "$800",
-          desc: "ワンページ構成、英語またはバイリンガルのコピー、モバイルファーストのレイアウト、CTA / 導線提案。",
+          price: "$249",
+          desc: "ワンページ構成、英語またはバイリンガルのコピー、モバイルファーストのレイアウト、CTA / 導線提案。(約 8-10 時間)",
         },
         {
           key: "monthly",
           name: "月次コンテンツ支援",
-          price: "$1,500 / 月",
-          desc: "月次プラン、キャプション、投稿アイデア、Instagram / 小紅書 の方向性、簡易レビュー。",
+          price: "$299 / 月",
+          desc: "月次プラン(12-15 本)、キャプション、投稿アイデア、Instagram / 小紅書 の方向性、簡易レビュー。(約 10-12 時間 / 月)",
+        },
+        {
+          key: "saas",
+          name: "SaaS 代理運用リテイナー",
+          price: "$500 / 月",
+          desc: "SaaS 企業向け:ユーザー獲得キャンペーン、コンテンツ / ナーチャリング設計、グロース実験、月次レポート。",
         },
       ],
     },
@@ -588,6 +659,18 @@ export const translations: Record<LanguageCode, Dict> = {
         { label: "Instagram", value: "@portfolio" },
       ],
     },
+    beyondWork: {
+      label: "オフタイム",
+      heading: "仕事以外の時間は、",
+      headingItalic: "だいたい動いています。",
+      body: [
+        "フィットネス好きで、小紅書(中国版 Instagram)でフィットネス発信もしています。いいね・保存 11.1K 達成。",
+        "テニス、北海道の冬はスキー、ストリート&旅のスナップ写真を撮るのも好きです。札幌在住なので、気づけばローカル小店を巡って、心の中でその場でコピーを書き直しています。",
+      ],
+      xhsLabel: "小紅書",
+      xhsCta: "プロフィールを見る",
+      xhsUrl: "https://xhslink.com/m/3g0bjokEbea",
+    },
     footer: "札幌から、スモールビジネスのマーケ支援を。",
   },
 
@@ -600,6 +683,7 @@ export const translations: Record<LanguageCode, Dict> = {
       portfolio: "Trabajos",
       whyMe: "Por qué yo",
       packages: "Paquetes",
+      beyondWork: "Fuera del trabajo",
       contact: "Contacto",
       cta: "Hablemos",
       languageLabel: "Idioma",
@@ -611,7 +695,7 @@ export const translations: Record<LanguageCode, Dict> = {
         "Ayudo a pequeñas empresas a convertir sus servicios en sitios web claros, contenido social y páginas de listado que los clientes entienden y sobre los que actúan.",
       ctaServices: "Ver servicios",
       ctaWork: "Ver ejemplos",
-      tags: ["Contenido y redes", "Landing pages", "Listados y local", "Copy bilingüe", "Turismo inbound"],
+      tags: ["Contenido y redes", "Landing pages", "Listados y local", "Operaciones SaaS", "Copy bilingüe", "Turismo inbound"],
     },
     about: {
       label: "Sobre mí",
@@ -631,7 +715,7 @@ export const translations: Record<LanguageCode, Dict> = {
     },
     services: {
       label: "Servicios",
-      heading: "Tres formas concretas de apoyar tu negocio.",
+      heading: "Cuatro formas concretas de apoyar tu negocio.",
       items: [
         {
           key: "content",
@@ -647,6 +731,11 @@ export const translations: Record<LanguageCode, Dict> = {
           key: "listing",
           title: "Listados y crecimiento local",
           desc: "Títulos más claros, propuestas de valor afinadas, descripciones, FAQs y CTAs para tus páginas o fichas — con una lista corta y práctica de acciones.",
+        },
+        {
+          key: "saas",
+          title: "Operaciones tipo agencia para SaaS (代运营)",
+          desc: "Soporte operativo tipo agencia para empresas SaaS: campañas de adquisición, sistemas de contenido y nurturing, experimentos de growth, copy de onboarding y reporte mensual.",
         },
       ],
     },
@@ -714,26 +803,32 @@ export const translations: Record<LanguageCode, Dict> = {
     packages: {
       label: "Paquetes de servicio",
       heading: "Paquetes simples para empezar.",
-      subheading: "Alcance personalizado bienvenido — esto es solo un punto de partida claro.",
+      subheading: "Tarifa base $30/hora. Alcance personalizado bienvenido — esto es solo un punto de partida claro.",
       fromLabel: "Desde",
       items: [
         {
           key: "audit",
           name: "Auditoría de ficha o página",
-          price: "$300",
-          desc: "Revisión de una ficha o página de servicio: mejorar título, propuestas de valor, descripción, FAQ y CTA, con una checklist práctica.",
+          price: "$99",
+          desc: "Revisión de una ficha o página de servicio: mejorar título, propuestas de valor, descripción, FAQ y CTA, con una checklist práctica. (~3-4 horas)",
         },
         {
           key: "sprint",
           name: "Sprint de Landing & Copy",
-          price: "$800",
-          desc: "Estructura de una página; copy en inglés o bilingüe; layout mobile-first; sugerencias de CTA y flujo de contacto.",
+          price: "$249",
+          desc: "Estructura de una página; copy en inglés o bilingüe; layout mobile-first; sugerencias de CTA y flujo de contacto. (~8-10 horas)",
         },
         {
           key: "monthly",
           name: "Soporte mensual de contenido",
-          price: "$1,500 / mes",
-          desc: "Plan mensual; copy e ideas de publicación; dirección para Instagram / Xiaohongshu; revisión básica de desempeño.",
+          price: "$299 / mes",
+          desc: "Plan mensual (12-15 piezas); copy e ideas de publicación; dirección para Instagram / Xiaohongshu; revisión básica. (~10-12 horas/mes)",
+        },
+        {
+          key: "saas",
+          name: "Retainer de operaciones SaaS",
+          price: "$500 / mes",
+          desc: "Soporte tipo agencia para SaaS: campañas de adquisición, sistemas de contenido y nurturing, experimentos de growth, reporte mensual.",
         },
       ],
     },
@@ -750,6 +845,18 @@ export const translations: Record<LanguageCode, Dict> = {
         { label: "LinkedIn", value: "Conectar" },
         { label: "Instagram", value: "@portfolio" },
       ],
+    },
+    beyondWork: {
+      label: "Fuera del trabajo",
+      heading: "Fuera del trabajo,",
+      headingItalic: "suelo estar en movimiento.",
+      body: [
+        "Soy entusiasta del fitness y comparto entrenamientos en Xiaohongshu — 11.1K likes & saves y contando.",
+        "Juego tenis, esquío los inviernos de Hokkaido y tomo fotos donde sea. Vivir en Sapporo significa que siempre estoy probando pequeños negocios locales — y reescribiendo su copy en mi cabeza.",
+      ],
+      xhsLabel: "Xiaohongshu",
+      xhsCta: "Ver mi perfil",
+      xhsUrl: "https://xhslink.com/m/3g0bjokEbea",
     },
     footer: "Soporte de marketing para pequeñas empresas, desde Sapporo, Japón.",
   },

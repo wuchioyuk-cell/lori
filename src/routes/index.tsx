@@ -9,6 +9,8 @@ import {
   Instagram,
   Briefcase,
   Check,
+  Dumbbell,
+  Heart,
 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { LanguageSwitcher } from "@/i18n/LanguageSwitcher";
@@ -27,7 +29,7 @@ export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-const serviceIcons = [PenSquare, LayoutTemplate, MapPin];
+const serviceIcons = [PenSquare, LayoutTemplate, MapPin, Briefcase];
 const contactIcons = [Mail, Briefcase, Linkedin, Instagram];
 const contactHrefs = [
   "mailto:wuchioyuk@gmail.com",
@@ -52,6 +54,7 @@ function Portfolio() {
         <WhyMe />
         <Packages />
         <About />
+        <BeyondWork />
         <Contact />
       </main>
 
@@ -78,6 +81,7 @@ function Nav() {
     { href: "#why", label: t.nav.whyMe },
     { href: "#packages", label: t.nav.packages },
     { href: "#about", label: t.nav.about },
+    { href: "#beyond", label: t.nav.beyondWork },
     { href: "#contact", label: t.nav.contact },
   ];
   return (
@@ -176,7 +180,7 @@ function Services() {
           {t.services.heading}
         </h2>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-2">
           {t.services.items.map((s, i) => {
             const Icon = serviceIcons[i] ?? PenSquare;
             return (
@@ -305,7 +309,7 @@ function Packages() {
           {t.packages.subheading}
         </p>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {t.packages.items.map((p, i) => (
             <article
               key={p.key}
@@ -365,6 +369,70 @@ function About() {
                 <div className="mt-1 text-sm font-medium">{v}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BeyondWork() {
+  const { t } = useLanguage();
+  return (
+    <section id="beyond" className="px-4 py-20 sm:px-6 sm:py-28">
+      <div className="mx-auto max-w-3xl">
+        <SectionLabel>{t.beyondWork.label}</SectionLabel>
+        <h2 className="text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">
+          {t.beyondWork.heading}{" "}
+          <span className="font-serif italic font-normal">{t.beyondWork.headingItalic}</span>
+        </h2>
+
+        <div className="glass-strong mt-10 rounded-3xl p-6 sm:p-10">
+          <div className="mb-6 flex flex-wrap items-center justify-center gap-2">
+            <span className="glass inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium text-foreground/80">
+              <Dumbbell className="size-3.5" /> Fitness
+            </span>
+            <span className="glass inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium text-foreground/80">
+              Tennis
+            </span>
+            <span className="glass inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium text-foreground/80">
+              Skiing
+            </span>
+            <span className="glass inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium text-foreground/80">
+              Photography
+            </span>
+            <span className="glass inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium text-foreground/80">
+              Sapporo Life
+            </span>
+          </div>
+
+          <div className="space-y-5 text-base leading-relaxed text-foreground/85 sm:text-lg">
+            {t.beyondWork.body.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-border/60 pt-6 sm:flex-row">
+            <div className="flex items-center gap-3">
+              <span className="grid size-9 place-items-center rounded-xl bg-gradient-to-br from-rose to-blush text-ink">
+                <Heart className="size-4" />
+              </span>
+              <div>
+                <div className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
+                  {t.beyondWork.xhsLabel}
+                </div>
+                <div className="text-sm font-medium">11.1K likes & saves</div>
+              </div>
+            </div>
+            <a
+              href={t.beyondWork.xhsUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-xs font-semibold text-background transition-transform hover:scale-[1.03]"
+            >
+              {t.beyondWork.xhsCta}
+              <ArrowUpRight className="size-3.5" />
+            </a>
           </div>
         </div>
       </div>
