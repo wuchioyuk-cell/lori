@@ -78,18 +78,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Caiyu Wu — Cross-cultural Product & Content Operator" },
+      { title: "Lori — Remote Growth & Content Marketing for Small Businesses" },
       {
         name: "description",
         content:
-          "Caiyu Wu helps brands, travel businesses, and digital projects turn ideas into clear products, persuasive content, and launch-ready experiences. Based in Sapporo, Japan.",
+          "Lori helps small businesses turn their services into clear websites, social content, and listing pages that customers can understand and act on. Based in Sapporo, Japan.",
       },
-      { name: "author", content: "Caiyu Wu" },
-      { property: "og:title", content: "Caiyu Wu — Product & Content Operator" },
+      { name: "author", content: "Lori" },
+      { property: "og:title", content: "Lori — Remote Growth & Content Marketing for Small Businesses" },
       {
         property: "og:description",
         content:
-          "Cross-cultural product operations, travel product design, content strategy and AI-assisted workflow.",
+          "Practical content, websites, and listing support for small businesses — from Sapporo, Japan.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
