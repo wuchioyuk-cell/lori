@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowUpRight,
-  PenSquare,
+  ListChecks,
   LayoutTemplate,
-  MapPin,
+  Briefcase,
+  Globe2,
   Mail,
   Linkedin,
   Instagram,
-  Briefcase,
   Check,
   Dumbbell,
   Heart,
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-const serviceIcons = [PenSquare, LayoutTemplate, MapPin, Briefcase];
+const serviceIcons = [ListChecks, LayoutTemplate, Briefcase, Globe2];
 const contactIcons = [Mail, Briefcase, Linkedin, Instagram];
 const contactHrefs = [
   "mailto:wuchioyuk@gmail.com",
@@ -319,9 +319,11 @@ function Packages() {
             >
               <h3 className="font-display text-lg font-bold">{p.name}</h3>
               <div className="mt-4 flex items-baseline gap-1.5">
-                <span className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
-                  {t.packages.fromLabel}
-                </span>
+                {/^\$|^\d/.test(p.price) && (
+                  <span className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
+                    {t.packages.fromLabel}
+                  </span>
+                )}
                 <span className="font-display text-3xl font-extrabold tracking-tight">
                   {p.price}
                 </span>
