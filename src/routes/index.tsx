@@ -11,6 +11,7 @@ import {
   Check,
   Dumbbell,
   Heart,
+  MapPin,
 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { LanguageSwitcher } from "@/i18n/LanguageSwitcher";
