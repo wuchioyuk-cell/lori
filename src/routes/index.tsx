@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowUpRight,
-  Compass,
-  Sparkles,
-  ShoppingBag,
-  Globe2,
-  Bot,
+  PenSquare,
+  LayoutTemplate,
+  MapPin,
   Mail,
   Linkedin,
   Instagram,
   Briefcase,
-  MapPin,
+  Check,
 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { LanguageSwitcher } from "@/i18n/LanguageSwitcher";
@@ -18,19 +16,18 @@ import { LanguageSwitcher } from "@/i18n/LanguageSwitcher";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Caiyu Wu — Cross-cultural Product & Content Operator" },
+      { title: "Lori — Remote Growth & Content Marketing for Small Businesses" },
       {
         name: "description",
         content:
-          "Portfolio of Caiyu Wu — product operations, travel product design, content strategy, e-commerce listing, AI-assisted workflow. Based in Sapporo, Japan.",
+          "Lori helps small businesses turn their services into clear websites, social content, and listing pages that customers can understand and act on. Based in Sapporo, Japan.",
       },
     ],
   }),
   component: Portfolio,
 });
 
-// Icons paired with services in the same order as the translations array.
-const serviceIcons = [Compass, Sparkles, ShoppingBag, Globe2, Bot];
+const serviceIcons = [PenSquare, LayoutTemplate, MapPin];
 const contactIcons = [Mail, Briefcase, Linkedin, Instagram];
 const contactHrefs = [
   "mailto:wuchioyuk@gmail.com",
@@ -50,11 +47,11 @@ function Portfolio() {
 
       <main className="relative z-10">
         <Hero />
-        <About />
         <Services />
         <Portfolios />
-        <WorkingStyle />
-        <Testimonials />
+        <WhyMe />
+        <Packages />
+        <About />
         <Contact />
       </main>
 
@@ -67,9 +64,7 @@ function Footer() {
   const { t } = useLanguage();
   return (
     <footer className="relative z-10 border-t border-border/60 px-6 py-10 text-center text-sm text-muted-foreground">
-      <p>
-        © {new Date().getFullYear()} Caiyu Wu (吴采宥) · {t.footer}
-      </p>
+      <p>© {new Date().getFullYear()} Lori · {t.footer}</p>
     </footer>
   );
 }
@@ -78,11 +73,11 @@ function Nav() {
   const { t } = useLanguage();
   const items = [
     { href: "#top", label: t.nav.home },
-    { href: "#about", label: t.nav.about },
     { href: "#services", label: t.nav.services },
     { href: "#work", label: t.nav.portfolio },
-    { href: "#style", label: t.nav.workingStyle },
-    { href: "#voices", label: t.nav.testimonials },
+    { href: "#why", label: t.nav.whyMe },
+    { href: "#packages", label: t.nav.packages },
+    { href: "#about", label: t.nav.about },
     { href: "#contact", label: t.nav.contact },
   ];
   return (
@@ -90,11 +85,9 @@ function Nav() {
       <nav className="glass mx-auto flex max-w-5xl items-center justify-between gap-3 rounded-full px-3 py-2.5 sm:px-5 sm:py-3">
         <a href="#top" className="flex items-center gap-2 font-display font-bold shrink-0">
           <span className="grid size-8 place-items-center rounded-full bg-gradient-to-br from-peach to-blush text-sm text-ink shrink-0">
-            C
+            L
           </span>
-          <span className="text-sm sm:text-base">
-            Caiyu Wu <span className="hidden text-muted-foreground sm:inline">· 吴采宥</span>
-          </span>
+          <span className="text-sm sm:text-base">Lori</span>
         </a>
         <div className="hidden items-center gap-5 text-sm text-muted-foreground lg:flex">
           {items.slice(1).map((i) => (
@@ -125,32 +118,26 @@ function Hero() {
         <div className="glass mx-auto mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium text-muted-foreground">
           <MapPin className="size-3.5" /> {t.hero.locationTag}
         </div>
-        <h1 className="font-display text-4xl leading-[1.1] font-extrabold tracking-tight text-balance sm:text-6xl">
-          {t.hero.title1}{" "}
-          <span className="bg-gradient-to-br from-primary via-[oklch(0.55_0.12_30)] to-accent bg-clip-text text-transparent">
-            {t.hero.name}
-          </span>{" "}
-          <span className="font-serif italic font-normal text-foreground/80">
-            {t.hero.title2}
-          </span>
+        <h1 className="font-display text-[2rem] leading-[1.12] font-extrabold tracking-tight text-balance sm:text-5xl md:text-6xl">
+          {t.hero.headline}
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg text-pretty">
-          {t.hero.subtitle}
+          {t.hero.subheadline}
         </p>
 
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
-            href="#work"
+            href="#services"
             className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-background transition-transform hover:scale-[1.03] sm:w-auto"
           >
-            {t.hero.ctaWork}
+            {t.hero.ctaServices}
             <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
           <a
-            href="#contact"
+            href="#work"
             className="glass-strong inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-foreground transition-transform hover:scale-[1.03] sm:w-auto"
           >
-            {t.hero.ctaContact}
+            {t.hero.ctaWork}
           </a>
         </div>
 
@@ -179,40 +166,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function About() {
-  const { t } = useLanguage();
-  return (
-    <section id="about" className="px-4 py-20 sm:px-6 sm:py-28">
-      <div className="mx-auto max-w-3xl">
-        <SectionLabel>{t.about.label}</SectionLabel>
-        <h2 className="text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">
-          {t.about.heading}{" "}
-          <span className="font-serif italic font-normal">{t.about.headingItalic}</span>
-        </h2>
-
-        <div className="glass-strong mt-10 rounded-3xl p-6 sm:p-10">
-          <div className="space-y-5 text-base leading-relaxed text-foreground/85 sm:text-lg">
-            {t.about.paragraphs.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
-
-          <div className="mt-8 grid grid-cols-2 gap-4 border-t border-border/60 pt-6 sm:grid-cols-4">
-            {t.about.facts.map(({ k, v }) => (
-              <div key={k}>
-                <div className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
-                  {k}
-                </div>
-                <div className="mt-1 text-sm font-medium">{v}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Services() {
   const { t } = useLanguage();
   return (
@@ -225,7 +178,7 @@ function Services() {
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {t.services.items.map((s, i) => {
-            const Icon = serviceIcons[i] ?? Sparkles;
+            const Icon = serviceIcons[i] ?? PenSquare;
             return (
               <article
                 key={s.key}
@@ -286,8 +239,9 @@ function Portfolios() {
                   {p.name}
                 </h3>
                 <div className="mt-5 space-y-3 text-sm leading-relaxed">
-                  <Row label={t.portfolio.rowRole} value={p.role} />
+                  <Row label={t.portfolio.rowProblem} value={p.problem} />
                   <Row label={t.portfolio.rowDid} value={p.did} />
+                  <Row label={t.portfolio.rowDeliverables} value={p.deliverables} />
                   <Row label={t.portfolio.rowResult} value={p.result} />
                 </div>
               </div>
@@ -301,7 +255,7 @@ function Portfolios() {
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <div className="grid grid-cols-[6rem_minmax(0,1fr)] gap-3">
+    <div className="grid grid-cols-[7rem_minmax(0,1fr)] gap-3">
       <div className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
         {label}
       </div>
@@ -310,24 +264,24 @@ function Row({ label, value }: { label: string; value: string }) {
   );
 }
 
-function WorkingStyle() {
+function WhyMe() {
   const { t } = useLanguage();
   return (
-    <section id="style" className="px-4 py-20 sm:px-6 sm:py-28">
+    <section id="why" className="px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-4xl">
-        <SectionLabel>{t.workingStyle.label}</SectionLabel>
+        <SectionLabel>{t.whyMe.label}</SectionLabel>
         <h2 className="mx-auto max-w-2xl text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">
-          {t.workingStyle.heading}
+          {t.whyMe.heading}
         </h2>
 
         <ul className="mt-12 grid gap-4 sm:grid-cols-2">
-          {t.workingStyle.items.map((s, i) => (
+          {t.whyMe.items.map((s, i) => (
             <li
               key={i}
               className="glass flex items-start gap-4 rounded-2xl p-5 text-foreground/85"
             >
-              <span className="grid size-8 shrink-0 place-items-center rounded-full bg-gradient-to-br from-peach to-blush font-display text-sm font-bold text-ink">
-                {i + 1}
+              <span className="grid size-8 shrink-0 place-items-center rounded-full bg-gradient-to-br from-peach to-blush text-ink">
+                <Check className="size-4" />
               </span>
               <p className="text-sm leading-relaxed sm:text-base">{s}</p>
             </li>
@@ -338,28 +292,80 @@ function WorkingStyle() {
   );
 }
 
-function Testimonials() {
+function Packages() {
   const { t } = useLanguage();
   return (
-    <section id="voices" className="px-4 py-20 sm:px-6 sm:py-28">
-      <div className="mx-auto max-w-5xl">
-        <SectionLabel>{t.testimonials.label}</SectionLabel>
+    <section id="packages" className="px-4 py-20 sm:px-6 sm:py-28">
+      <div className="mx-auto max-w-6xl">
+        <SectionLabel>{t.packages.label}</SectionLabel>
         <h2 className="mx-auto max-w-2xl text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">
-          {t.testimonials.heading}
+          {t.packages.heading}
+        </h2>
+        <p className="mx-auto mt-3 max-w-xl text-center text-sm text-muted-foreground">
+          {t.packages.subheading}
+        </p>
+
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {t.packages.items.map((p, i) => (
+            <article
+              key={p.key}
+              className={`relative flex flex-col rounded-3xl p-7 transition-transform duration-300 hover:-translate-y-1 ${
+                i === 1 ? "glass-strong ring-1 ring-primary/30" : "glass"
+              }`}
+            >
+              <h3 className="font-display text-lg font-bold">{p.name}</h3>
+              <div className="mt-4 flex items-baseline gap-1.5">
+                <span className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
+                  {t.packages.fromLabel}
+                </span>
+                <span className="font-display text-3xl font-extrabold tracking-tight">
+                  {p.price}
+                </span>
+              </div>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+              <a
+                href="#contact"
+                className="mt-6 inline-flex items-center justify-center gap-1.5 self-start rounded-full bg-ink px-4 py-2 text-xs font-semibold text-background transition-transform hover:scale-[1.03]"
+              >
+                {t.contact.cta}
+                <ArrowUpRight className="size-3.5" />
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function About() {
+  const { t } = useLanguage();
+  return (
+    <section id="about" className="px-4 py-20 sm:px-6 sm:py-28">
+      <div className="mx-auto max-w-3xl">
+        <SectionLabel>{t.about.label}</SectionLabel>
+        <h2 className="text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">
+          {t.about.heading}{" "}
+          <span className="font-serif italic font-normal">{t.about.headingItalic}</span>
         </h2>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {t.testimonials.items.map((tt, i) => (
-            <figure key={i} className="glass-strong rounded-3xl p-7">
-              <blockquote className="font-serif text-xl leading-snug italic text-foreground/90 sm:text-2xl">
-                “{tt.quote}”
-              </blockquote>
-              <figcaption className="mt-5 flex items-center gap-3 text-sm text-muted-foreground">
-                <span className="size-2 rounded-full bg-accent" />
-                {tt.who}
-              </figcaption>
-            </figure>
-          ))}
+        <div className="glass-strong mt-10 rounded-3xl p-6 sm:p-10">
+          <div className="space-y-5 text-base leading-relaxed text-foreground/85 sm:text-lg">
+            {t.about.paragraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
+
+          <div className="mt-8 grid grid-cols-2 gap-4 border-t border-border/60 pt-6 sm:grid-cols-4">
+            {t.about.facts.map(({ k, v }) => (
+              <div key={k}>
+                <div className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
+                  {k}
+                </div>
+                <div className="mt-1 text-sm font-medium">{v}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

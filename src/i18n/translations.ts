@@ -1,4 +1,4 @@
-// Multi-language content for Caiyu Wu's portfolio.
+// Multi-language content for Lori's portfolio.
 // Architecture: every UI string and content array is keyed by language code.
 // To add a new language (e.g. zh-TW, vi, th), add a new entry to `languages`
 // and a matching entry to `translations`. Nothing else in the app needs to change.
@@ -15,15 +15,16 @@ export const languages: { code: LanguageCode; label: string; short: string; flag
 export const defaultLanguage: LanguageCode = "en";
 
 export type Service = { key: string; title: string; desc: string };
-export type Project = {
+export type CaseStudy = {
   key: string;
   name: string;
-  role: string;
-  did: string;
-  result: string;
   tag: string;
+  problem: string;
+  did: string;
+  deliverables: string;
+  result: string;
 };
-export type Testimonial = { quote: string; who: string };
+export type Package = { key: string; name: string; price: string; desc: string };
 
 export type Dict = {
   htmlLang: string;
@@ -32,20 +33,18 @@ export type Dict = {
     about: string;
     services: string;
     portfolio: string;
-    workingStyle: string;
-    testimonials: string;
+    whyMe: string;
+    packages: string;
     contact: string;
     cta: string;
     languageLabel: string;
   };
   hero: {
     locationTag: string;
-    title1: string;
-    name: string;
-    title2: string;
-    subtitle: string;
+    headline: string;
+    subheadline: string;
+    ctaServices: string;
     ctaWork: string;
-    ctaContact: string;
     tags: string[];
   };
   about: {
@@ -63,21 +62,24 @@ export type Dict = {
   portfolio: {
     label: string;
     heading: string;
-    caseLabel: string; // e.g. "Case"
-    rowRole: string;
+    caseLabel: string;
+    rowProblem: string;
     rowDid: string;
+    rowDeliverables: string;
     rowResult: string;
-    items: Project[];
+    items: CaseStudy[];
   };
-  workingStyle: {
+  whyMe: {
     label: string;
     heading: string;
     items: string[];
   };
-  testimonials: {
+  packages: {
     label: string;
     heading: string;
-    items: Testimonial[];
+    subheading: string;
+    fromLabel: string;
+    items: Package[];
   };
   contact: {
     label: string;
@@ -97,166 +99,164 @@ export const translations: Record<LanguageCode, Dict> = {
       home: "Home",
       about: "About",
       services: "Services",
-      portfolio: "Portfolio",
-      workingStyle: "Working Style",
-      testimonials: "Testimonials",
+      portfolio: "Work",
+      whyMe: "Why Me",
+      packages: "Packages",
       contact: "Contact",
       cta: "Let's talk",
       languageLabel: "Language",
     },
     hero: {
-      locationTag: "Based in Sapporo, Japan · Open to remote work",
-      title1: "Hi, I'm",
-      name: "Caiyu Wu",
-      title2: "— a cross-cultural product & content operator based in Japan.",
-      subtitle:
-        "I help brands, travel businesses, and digital projects turn ideas into clear products, persuasive content, and launch-ready online experiences.",
-      ctaWork: "View My Work",
-      ctaContact: "Work With Me",
+      locationTag: "Based in Sapporo, Japan · Remote-friendly",
+      headline: "Remote Growth & Content Marketing Support for Small Businesses",
+      subheadline:
+        "I help small businesses turn their services into clear websites, social content, and listing pages that customers can understand and act on.",
+      ctaServices: "View Services",
+      ctaWork: "See Work Examples",
       tags: [
-        "Product Operations",
-        "Travel Product Design",
-        "Content Strategy",
-        "E-commerce Listing",
-        "AI-assisted Workflow",
-        "Multilingual Communication",
+        "Content & Social Media",
+        "Landing Pages",
+        "Listings & Local Growth",
+        "Bilingual Copy",
+        "Inbound Tourism",
       ],
     },
     about: {
-      label: "About Me",
-      heading: "A warm operator who turns messy ideas into",
-      headingItalic: "structured execution.",
+      label: "About",
+      heading: "Practical marketing help for",
+      headingItalic: "small businesses.",
       paragraphs: [
-        "I'm based in Sapporo, Japan, working as a travel product manager and operator in a Japanese and international environment. Chinese is my native language, and I work comfortably across Mandarin, English, and Japanese.",
-        "My experience spans travel product planning, OTA listings, social media content, e-commerce visuals, website planning, and AI-assisted productivity. My strength is not only writing content — it's understanding the business goal behind the content, and shaping the delivery so that goal actually lands.",
-        "People who work with me tend to describe me as warm, responsible, and proactive — good at seeing other people's strengths, and good at turning scattered ideas into structured, executable outputs.",
+        "I'm Lori, based in Sapporo, Japan. I work with small businesses that need clearer marketing — not a big agency, just steady, hands-on support from one person who actually gets things done.",
+        "My day-to-day is content, copywriting, simple websites, and platform-style listing structure. I'm especially close to inbound tourism, local experiences, Hokkaido, and ski-related businesses — but the same toolkit works for any small service business that needs to show up online with intent.",
+        "Native-level Chinese, with conversational Japanese and English. I keep things honest, organized, and on time.",
       ],
       facts: [
         { k: "Location", v: "Sapporo, JP" },
-        { k: "Languages", v: "中 · EN · 日 · ES" },
-        { k: "Role", v: "PM / Operator" },
-        { k: "Mode", v: "Remote-ready" },
+        { k: "Languages", v: "中 · EN · 日" },
+        { k: "Focus", v: "Small business" },
+        { k: "Mode", v: "Remote" },
       ],
     },
     services: {
-      label: "What I Can Help With",
-      heading: "Five focused ways I plug into your team.",
+      label: "Services",
+      heading: "Three focused ways I can support your business.",
       items: [
-        {
-          key: "travel",
-          title: "Travel Product & OTA Listing",
-          desc: "Route planning, product descriptions, platform listing optimization, and customer-facing copy that actually converts curious browsers into bookings.",
-        },
         {
           key: "content",
           title: "Content & Social Media",
-          desc: "Xiaohongshu, Instagram and Threads style content, campaign ideas, and bilingual adaptation that keeps tone and intent intact across markets.",
-        },
-        {
-          key: "ecom",
-          title: "E-commerce Listing Support",
-          desc: "Selling-point structures, image concept planning, and marketplace-ready listing materials for platforms like Ozon and TikTok Shop.",
+          desc: "Monthly content plans, captions, post ideas, and a clear direction for Instagram, Xiaohongshu, or Threads — written to fit your tone, not a template.",
         },
         {
           key: "web",
-          title: "Website & Brand Structure",
-          desc: "Landing page architecture, service page planning, website copy, and multilingual content layout for global-facing brands.",
+          title: "Website & Landing Page",
+          desc: "One-page structure, English or bilingual copy, mobile-first content layout, and CTA and inquiry flow suggestions — so a stranger can understand what you offer in 30 seconds.",
         },
         {
-          key: "ai",
-          title: "AI Workflow Support",
-          desc: "Repeatable prompt systems and AI tooling to speed up content production, research, planning, and daily operations without losing taste.",
+          key: "listing",
+          title: "Listings & Local Business Growth",
+          desc: "Cleaner titles, sharper selling points, better descriptions, FAQs, and CTAs for your service pages or platform listings — with a short, practical action checklist.",
         },
       ],
     },
     portfolio: {
-      label: "Selected Work",
-      heading: "Recent projects across travel, content & commerce.",
+      label: "Featured Work",
+      heading: "A few examples of how I help small businesses show up online.",
       caseLabel: "Case",
-      rowRole: "My Role",
+      rowProblem: "Problem",
       rowDid: "What I Did",
-      rowResult: "Result / Value",
+      rowDeliverables: "Deliverables",
+      rowResult: "Result",
       items: [
-        {
-          key: "hokkaido",
-          name: "Hokkaido Travel Product Planning",
-          role: "Product Operator & Planner",
-          did: "Designed private car tours, ski camp products, and seasonal travel routes for international travelers, building the full product brief from selling points to itinerary.",
-          result:
-            "Travel products went from rough internal ideas to ready-to-publish offers across Chinese and English channels.",
-          tag: "Travel",
-        },
         {
           key: "ski",
-          name: "Japan Youth Ski Camp Campaign",
-          role: "Content & Product Lead",
-          did: "Crafted parent-friendly product messaging for a winter ski camp targeting Chinese-speaking families in Japan, from headline to FAQ.",
+          name: "Inbound Ski Camp — Bilingual Landing Page",
+          tag: "Inbound Tourism",
+          problem:
+            "A small Hokkaido ski camp had a basic page but parents abroad couldn't tell what was included, who it was for, or how to book.",
+          did: "Restructured the page around parent questions, rewrote the headline and FAQs, and added a clear inquiry flow.",
+          deliverables: "One-page bilingual structure, copy, FAQ block, CTA suggestions.",
           result:
-            "Created a consistent, trust-building narrative parents could share inside private group chats without further explanation.",
-          tag: "Campaign",
+            "Parents could share the page inside private groups without needing extra explanation.",
         },
         {
-          key: "ecom",
-          name: "E-commerce Visual Planning",
-          role: "Listing & Visual Planner",
-          did: "Planned marketplace listing images and selling-point structures for products on Ozon and TikTok Shop, briefing visuals end-to-end.",
+          key: "tour",
+          name: "Local Hokkaido Tour — Listing Refresh",
+          tag: "Listings",
+          problem:
+            "A local guide's tour listing had honest content but a vague title and no clear selling points, so it didn't stand out.",
+          did: "Rewrote the title, top-three selling points, and description; added a short FAQ and a single, focused CTA.",
+          deliverables: "New title, selling-point list, listing description, FAQ, action checklist.",
           result:
-            "Listings looked native to each marketplace and gave operations teams a reusable visual template.",
-          tag: "E-commerce",
+            "Listing reads as a real, specific experience instead of a generic activity post.",
         },
         {
-          key: "multi",
-          name: "Multilingual Website Planning",
-          role: "Information Architect",
-          did: "Structured a tourism company website across Simplified Chinese, English, Japanese, Traditional Chinese, Vietnamese, Thai, and Spanish.",
+          key: "shop",
+          name: "Service Business — Monthly Content Plan",
+          tag: "Content & Social",
+          problem:
+            "A small service business posted irregularly and wasn't sure what to talk about week to week.",
+          did: "Built a monthly content plan around three simple themes, drafted captions, and gave platform-specific direction.",
+          deliverables: "Monthly plan, caption drafts, post ideas, light performance review.",
           result:
-            "One coherent site spine that respected each language while keeping the brand voice consistent.",
-          tag: "Web",
+            "Posting felt calm and consistent instead of last-minute, with a clearer story for new followers.",
         },
         {
-          key: "ai",
-          name: "AI-assisted Content System",
-          role: "Workflow Designer",
-          did: "Built repeatable prompt workflows covering content, listing copy, and visual direction for daily operations.",
+          key: "site",
+          name: "Bilingual One-Page Website",
+          tag: "Website",
+          problem:
+            "A small operator had services in their head but nothing online clients could read before reaching out.",
+          did: "Mapped the offer into a one-page structure, wrote bilingual copy, and shaped a simple inquiry flow.",
+          deliverables: "Page structure, English + Chinese copy, CTA and contact section.",
           result:
-            "Cut routine content drafting time meaningfully while keeping outputs on-brand and review-ready.",
-          tag: "AI",
+            "Inquiries arrived with more context, because the page answered the basics first.",
         },
       ],
     },
-    workingStyle: {
-      label: "My Working Style",
-      heading: "How I show up when we work together.",
+    whyMe: {
+      label: "Why Work With Me",
+      heading: "Small-team friendly, hands-on, honest.",
       items: [
-        "I ask the right questions before creating.",
-        "I care about both business goals and user emotions.",
-        "I am fast, organized, and willing to iterate.",
-        "I can work across cultures and platforms.",
-        "I turn unclear ideas into structured outputs.",
+        "One person, one point of contact — no agency layers, no handoffs.",
+        "Based in Japan, close to inbound tourism, local services, and Hokkaido.",
+        "Native Chinese, conversational Japanese and English — useful for bilingual rollouts.",
+        "Practical and execution-first — I'd rather ship a clear v1 than over-plan.",
+        "I ask the real questions before writing — so the content actually fits your business.",
+        "Calm, organized, on time. I respect small-business budgets and timelines.",
       ],
     },
-    testimonials: {
-      label: "Kind Words",
-      heading: "What collaborators say.",
+    packages: {
+      label: "Service Packages",
+      heading: "Simple packages to start with.",
+      subheading: "Custom scopes welcome — these are just a clear starting point.",
+      fromLabel: "From",
       items: [
         {
-          quote:
-            "Caiyu is proactive, thoughtful, and very good at turning scattered ideas into practical execution.",
-          who: "Project collaborator",
+          key: "audit",
+          name: "Listing Audit",
+          price: "$300",
+          desc: "Review one listing or service page; improve title, selling points, description, FAQ, and CTA; provide a short, practical action checklist.",
         },
         {
-          quote:
-            "Working with her feels easy because she understands both content and business needs.",
-          who: "Travel industry partner",
+          key: "sprint",
+          name: "Landing Page & Copy Sprint",
+          price: "$800",
+          desc: "One-page structure; English or bilingual copy; mobile-first content layout; CTA and inquiry flow suggestions.",
+        },
+        {
+          key: "monthly",
+          name: "Monthly Content Support",
+          price: "$1,500/month",
+          desc: "Monthly content plan; captions and post ideas; Instagram / Xiaohongshu direction; basic performance review.",
         },
       ],
     },
     contact: {
       label: "Contact",
-      heading: "Let's build something",
-      headingItalic: "clear & warm",
+      heading: "Let's make your offer",
+      headingItalic: "easy to understand.",
       intro:
-        "Whether it's a travel product, a listing rebuild, a website refresh, or an AI workflow — I'd love to hear what you're working on.",
+        "Tell me a little about your business and what you'd like to improve. I usually reply within a day.",
       cta: "Let's Work Together",
       links: [
         { label: "Email", value: "wuchioyuk@gmail.com" },
@@ -265,168 +265,159 @@ export const translations: Record<LanguageCode, Dict> = {
         { label: "Instagram", value: "@portfolio" },
       ],
     },
-    footer: "Crafted with care in Sapporo, Japan.",
+    footer: "Small-business marketing support from Sapporo, Japan.",
   },
 
   zh: {
     htmlLang: "zh-CN",
     nav: {
       home: "首页",
-      about: "关于我",
+      about: "关于",
       services: "服务",
-      portfolio: "作品",
-      workingStyle: "工作方式",
-      testimonials: "客户评价",
-      contact: "联系我",
+      portfolio: "案例",
+      whyMe: "为什么是我",
+      packages: "套餐",
+      contact: "联系",
       cta: "聊一聊",
       languageLabel: "语言",
     },
     hero: {
-      locationTag: "现居日本札幌 · 可远程合作",
-      title1: "你好，我是",
-      name: "吴采宥 Caiyu Wu",
-      title2: "—— 一名常驻日本的跨文化产品与内容运营。",
-      subtitle:
-        "我帮品牌、旅游业务和数字项目，把模糊的想法变成清晰的产品、有说服力的内容，以及可以上线的线上体验。",
-      ctaWork: "查看作品",
-      ctaContact: "与我合作",
-      tags: [
-        "产品运营",
-        "旅游产品设计",
-        "内容策略",
-        "电商商品页",
-        "AI 辅助工作流",
-        "多语种沟通",
-      ],
+      locationTag: "现居日本札幌 · 支持远程",
+      headline: "面向小企业的远程增长与内容营销支持",
+      subheadline:
+        "我帮小企业把服务,变成顾客一眼就能看懂、并愿意采取行动的网站、社媒内容和商品/服务页。",
+      ctaServices: "查看服务",
+      ctaWork: "看案例示例",
+      tags: ["内容与社媒", "落地页", "商品页与本地增长", "双语文案", "入境旅游"],
     },
     about: {
-      label: "关于我",
-      heading: "一个温暖的操盘人，把零散的想法整理成",
-      headingItalic: "可执行的结构。",
+      label: "关于",
+      heading: "为小企业提供",
+      headingItalic: "可落地的营销支持。",
       paragraphs: [
-        "我常驻日本札幌，在日本与国际化的工作环境中担任旅游产品经理与运营。中文是我的母语，我能在中文、英文和日文之间自如切换。",
-        "我的经验覆盖旅游产品规划、OTA 商品上架、社媒内容、电商视觉、官网内容架构，以及 AI 辅助生产力。我的优势不仅是写内容，更是理解内容背后的商业目标，并把交付方式设计到目标真的能落地。",
-        "和我合作过的人通常会说我温暖、靠谱、主动 —— 善于发现别人的长处，也善于把零散的想法整理成结构化、可执行的产出。",
+        "我是 Lori,常驻日本札幌。我服务的是需要把营销讲清楚的小企业 —— 不是大代理公司,只是一个真的能把事情做完的人,稳定、动手、靠得住。",
+        "我日常做的是内容、文案、轻量网站,以及平台风格的商品/服务页结构。比较熟悉的方向是入境旅游、在地体验、北海道,以及滑雪相关业务 —— 但同一套方法,适用于任何想在线上把自己讲清楚的小型服务业。",
+        "中文母语,日语和英语可日常沟通。我做事直接、有条理、不拖。",
       ],
       facts: [
         { k: "所在地", v: "日本札幌" },
-        { k: "语言", v: "中 · EN · 日 · ES" },
-        { k: "身份", v: "PM / 运营" },
-        { k: "模式", v: "远程优先" },
+        { k: "语言", v: "中 · EN · 日" },
+        { k: "聚焦", v: "小企业" },
+        { k: "模式", v: "远程" },
       ],
     },
     services: {
-      label: "我能怎么帮你",
-      heading: "五个我可以深度参与的方向。",
+      label: "服务",
+      heading: "三个我可以稳定支持的方向。",
       items: [
-        {
-          key: "travel",
-          title: "旅游产品与 OTA 上架",
-          desc: "路线规划、产品描述、平台上架优化，以及真正能把好奇浏览者转化为预订的对外文案。",
-        },
         {
           key: "content",
           title: "内容与社媒",
-          desc: "小红书、Instagram、Threads 风格内容、活动 idea，以及跨市场仍能保持语气与意图的双语改写。",
-        },
-        {
-          key: "ecom",
-          title: "电商商品页支持",
-          desc: "卖点结构、主图与配图概念、面向 Ozon、TikTok Shop 等平台可直接使用的上架素材规划。",
+          desc: "月度内容计划、文案、发文 idea,以及 Instagram、小红书、Threads 的清晰方向 —— 写出来像你,不像模板。",
         },
         {
           key: "web",
-          title: "官网与品牌结构",
-          desc: "落地页结构、服务页规划、官网文案，以及面向国际客户的多语种内容布局。",
+          title: "网站与落地页",
+          desc: "单页结构、英文或双语文案、移动端优先的内容布局、CTA 与询盘流程建议 —— 让陌生人 30 秒看懂你做什么。",
         },
         {
-          key: "ai",
-          title: "AI 工作流支持",
-          desc: "可复用的 Prompt 体系与 AI 工具组合，让内容生产、调研、规划与日常运营更快，又不失审美。",
+          key: "listing",
+          title: "商品页与本地业务增长",
+          desc: "更准确的标题、更利落的卖点、更可读的描述、FAQ 与 CTA —— 配一份简短可执行的优化清单。",
         },
       ],
     },
     portfolio: {
-      label: "精选项目",
-      heading: "近期在旅游、内容与电商的项目。",
+      label: "案例示例",
+      heading: "几个我帮小企业把自己讲清楚的例子。",
       caseLabel: "案例",
-      rowRole: "我的角色",
+      rowProblem: "问题",
       rowDid: "我做了什么",
-      rowResult: "结果 / 价值",
+      rowDeliverables: "交付物",
+      rowResult: "结果",
       items: [
-        {
-          key: "hokkaido",
-          name: "北海道旅游产品规划",
-          role: "产品运营 & 规划",
-          did: "为国际旅客设计包车线路、滑雪营产品与季节性旅行路线，从卖点到行程构建完整的产品 brief。",
-          result: "旅游产品从内部粗糙想法，变成了在中英渠道都可以直接发布的成熟方案。",
-          tag: "旅游",
-        },
         {
           key: "ski",
-          name: "日本青少年滑雪营 campaign",
-          role: "内容与产品负责",
-          did: "为面向在日华语家庭的冬季滑雪营撰写从主标题到 FAQ 的家长向产品叙述。",
-          result: "形成了一套家长可以在私域群里直接转发、不需要额外解释的可信叙述。",
-          tag: "Campaign",
+          name: "入境滑雪营 · 双语落地页",
+          tag: "入境旅游",
+          problem:
+            "一家北海道小型滑雪营有基础页面,但海外家长看不出包含什么、适合谁、怎么报名。",
+          did: "围绕家长会问的问题重做了页面结构,重写了主标题和 FAQ,加上了清晰的询盘流程。",
+          deliverables: "单页双语结构、文案、FAQ 区块、CTA 建议。",
+          result: "家长可以直接把页面发到私群里,不需要额外解释。",
         },
         {
-          key: "ecom",
-          name: "电商视觉规划",
-          role: "上架与视觉规划",
-          did: "为 Ozon 和 TikTok Shop 上的商品规划商品图与卖点结构，并完成端到端的视觉 brief。",
-          result: "商品页在各平台都看起来像原生内容，运营团队也获得了可复用的视觉模板。",
-          tag: "电商",
+          key: "tour",
+          name: "北海道在地游 · 商品页焕新",
+          tag: "商品页",
+          problem: "本地向导的游玩商品内容真诚,但标题模糊、卖点不清,信息淹没在列表里。",
+          did: "重写标题、Top 3 卖点和描述,补上简短的 FAQ,并收敛到一个明确的 CTA。",
+          deliverables: "新标题、卖点列表、商品描述、FAQ、行动清单。",
+          result: "页面读起来像一次具体的真实体验,而不是一条通用活动帖。",
         },
         {
-          key: "multi",
-          name: "多语种官网规划",
-          role: "信息架构",
-          did: "为一家旅游公司搭建简体中文、英语、日语、繁体中文、越南语、泰语和西班牙语的官网结构。",
-          result: "形成了一套尊重各语言习惯、又保持统一品牌语气的网站骨架。",
-          tag: "官网",
+          key: "shop",
+          name: "小型服务业 · 月度内容计划",
+          tag: "内容与社媒",
+          problem: "一家小型服务业发文不规律,也不确定每周该说什么。",
+          did: "围绕三个简单主题搭建月度内容计划,起草文案,并按平台给出具体方向。",
+          deliverables: "月度计划、文案初稿、发文 idea、轻量数据回顾。",
+          result: "发文从临时抱佛脚变成稳定节奏,新粉丝也能更快理解这是做什么的。",
         },
         {
-          key: "ai",
-          name: "AI 辅助内容体系",
-          role: "工作流设计",
-          did: "构建覆盖内容、商品文案与视觉方向的可复用 Prompt 工作流。",
-          result: "显著缩短日常内容初稿时间，同时保持调性一致且可直接送审。",
-          tag: "AI",
+          key: "site",
+          name: "双语单页网站",
+          tag: "网站",
+          problem: "一位小经营者业务在脑子里,但线上没有任何东西可以给客户先看。",
+          did: "把服务梳理成单页结构,写好双语文案,设计一个简单的询盘流程。",
+          deliverables: "页面结构、中英文案、CTA 与联系区块。",
+          result: "询盘进来时已经带着基本信息,因为页面已经先解释清楚了。",
         },
       ],
     },
-    workingStyle: {
-      label: "我的工作方式",
-      heading: "合作时，你会看到我这样出现。",
+    whyMe: {
+      label: "为什么是我",
+      heading: "适合小团队、动手做、说话算话。",
       items: [
-        "动手前会先问对的问题。",
-        "既看重业务目标，也在意用户的感受。",
-        "节奏快、有条理、愿意持续迭代。",
-        "能在不同文化与平台间穿梭。",
-        "把模糊的想法整理成结构化的产出。",
+        "一个人对接,没有代理层级,没有信息接力。",
+        "人在日本,贴近入境旅游、本地服务和北海道。",
+        "中文母语,日语英语日常可用 —— 适合做双语推广。",
+        "执行优先,愿意先发一个清晰的 v1,而不是无限规划。",
+        "动笔前先问真正该问的问题,内容才贴合业务。",
+        "稳、有条理、按时交付,尊重小企业的预算和节奏。",
       ],
     },
-    testimonials: {
-      label: "他们这样说",
-      heading: "合作过的人怎么评价。",
+    packages: {
+      label: "服务套餐",
+      heading: "简单的起点套餐。",
+      subheading: "可按需定制 —— 下面只是一个清晰的起点。",
+      fromLabel: "起价",
       items: [
         {
-          quote: "采宥主动、细致，特别擅长把零散的想法变成真正可以执行的方案。",
-          who: "项目合作者",
+          key: "audit",
+          name: "商品页 / 服务页诊断",
+          price: "$300",
+          desc: "针对一个商品页或服务页:优化标题、卖点、描述、FAQ 与 CTA,并给出一份简短的行动清单。",
         },
         {
-          quote: "和她合作很省心，因为她同时理解内容和业务的需求。",
-          who: "旅游行业合作伙伴",
+          key: "sprint",
+          name: "落地页与文案冲刺",
+          price: "$800",
+          desc: "单页结构、英文或双语文案、移动端优先布局、CTA 与询盘流程建议。",
+        },
+        {
+          key: "monthly",
+          name: "月度内容支持",
+          price: "$1,500 / 月",
+          desc: "月度内容计划、文案与发文 idea、Instagram / 小红书方向、基础数据回顾。",
         },
       ],
     },
     contact: {
       label: "联系",
-      heading: "一起做一些",
-      headingItalic: "清晰又温暖",
-      intro:
-        "不论是旅游产品、商品页重构、官网焕新还是 AI 工作流 —— 我都很想听听你正在做什么。",
+      heading: "把你的服务,",
+      headingItalic: "讲得让人一眼看懂。",
+      intro: "告诉我一点你的业务和想改善的方向,我通常会在一天内回复。",
       cta: "一起合作",
       links: [
         { label: "邮箱", value: "wuchioyuk@gmail.com" },
@@ -435,7 +426,7 @@ export const translations: Record<LanguageCode, Dict> = {
         { label: "Instagram", value: "@portfolio" },
       ],
     },
-    footer: "在日本札幌，用心打磨。",
+    footer: "来自日本札幌的小企业营销支持。",
   },
 
   ja: {
@@ -445,158 +436,150 @@ export const translations: Record<LanguageCode, Dict> = {
       about: "プロフィール",
       services: "サービス",
       portfolio: "実績",
-      workingStyle: "仕事の進め方",
-      testimonials: "お客様の声",
+      whyMe: "選ばれる理由",
+      packages: "パッケージ",
       contact: "お問い合わせ",
       cta: "話してみる",
       languageLabel: "言語",
     },
     hero: {
-      locationTag: "札幌在住・リモートワーク対応",
-      title1: "はじめまして、",
-      name: "Caiyu Wu（呉 采宥）",
-      title2: "—— 日本を拠点とするクロスカルチャー プロダクト&コンテンツ運用担当です。",
-      subtitle:
-        "ブランド、旅行業、デジタルプロジェクトのアイデアを、わかりやすいプロダクト、伝わるコンテンツ、公開できるオンライン体験に変えるお手伝いをしています。",
+      locationTag: "札幌在住・リモート対応",
+      headline: "スモールビジネス向け リモートのグロース&コンテンツ支援",
+      subheadline:
+        "サービスを、お客様がすぐに理解して行動に移せる Web サイト・SNS・商品/サービスページへ。小さなビジネスのために、わかりやすい言葉でお手伝いします。",
+      ctaServices: "サービスを見る",
       ctaWork: "実績を見る",
-      ctaContact: "一緒に働く",
-      tags: [
-        "プロダクト運営",
-        "旅行商品設計",
-        "コンテンツ戦略",
-        "EC 商品ページ",
-        "AI ワークフロー",
-        "多言語コミュニケーション",
-      ],
+      tags: ["コンテンツ & SNS", "ランディング", "商品ページ & ローカル", "バイリンガル", "インバウンド"],
     },
     about: {
       label: "プロフィール",
-      heading: "ばらばらなアイデアを",
-      headingItalic: "実行できる形に整える運用担当。",
+      heading: "スモールビジネスのための",
+      headingItalic: "実務的なマーケ支援。",
       paragraphs: [
-        "札幌を拠点に、日本と国際的な環境で旅行プロダクトマネージャー兼運用担当として働いています。母語は中国語で、中国語・英語・日本語を行き来しながら仕事をしています。",
-        "経験領域は、旅行商品の企画、OTA 出品、SNS コンテンツ、EC のビジュアル、Web サイト設計、AI を活用した生産性向上など。強みは文章を書くことだけではなく、その背景にあるビジネスゴールを理解し、そのゴールが実際に着地するように届け方を設計できることです。",
-        "一緒に仕事をした人からは、温かく、責任感があり、主体的だと言われます。相手の強みを見つけるのが得意で、散らばったアイデアを構造化された実行可能なアウトプットに変えるのが得意です。",
+        "Lori と申します。札幌を拠点に、もっとわかりやすく伝えたいスモールビジネスをお手伝いしています。大きな代理店ではなく、確実に進める一人の担当者として動きます。",
+        "得意領域は、コンテンツ、コピー、シンプルな Web サイト、そして商品/サービスページの構造づくり。特にインバウンド観光・ローカル体験・北海道・スキー関連に近い距離感があります。同じ考え方は、オンラインで自分をきちんと伝えたい小規模サービス全般に応用できます。",
+        "母語は中国語、日本語と英語は日常会話レベル。誠実に、整理して、納期どおりに進めます。",
       ],
       facts: [
         { k: "拠点", v: "札幌, 日本" },
-        { k: "言語", v: "中 · EN · 日 · ES" },
-        { k: "ロール", v: "PM / 運用" },
-        { k: "形態", v: "リモート可" },
+        { k: "言語", v: "中 · EN · 日" },
+        { k: "対象", v: "スモールビジネス" },
+        { k: "形態", v: "リモート" },
       ],
     },
     services: {
-      label: "できること",
-      heading: "深く入り込めるのは、この 5 つの領域。",
+      label: "サービス",
+      heading: "深く入り込めるのは、この 3 つです。",
       items: [
-        {
-          key: "travel",
-          title: "旅行商品 & OTA 出品",
-          desc: "ルート設計、商品説明、プラットフォーム出品の最適化。閲覧者を実際の予約に変える顧客向けコピーをつくります。",
-        },
         {
           key: "content",
           title: "コンテンツ & SNS",
-          desc: "小紅書、Instagram、Threads 向けの企画、キャンペーンアイデア、市場をまたいでもトーンと意図を保つ多言語リライト。",
-        },
-        {
-          key: "ecom",
-          title: "EC 商品ページ支援",
-          desc: "売りどころの構造、画像コンセプト、Ozon や TikTok Shop ですぐ使える出品素材の設計。",
+          desc: "月次のコンテンツプラン、キャプション、投稿アイデア、そして Instagram / 小紅書 / Threads の方向性を、テンプレートではなく、あなたのトーンで。",
         },
         {
           key: "web",
-          title: "Web サイト & ブランド構造",
-          desc: "ランディングページの骨格、サービスページの設計、Web コピー、グローバル向けの多言語コンテンツ配置。",
+          title: "Web サイト & ランディング",
+          desc: "ワンページの構成、英語または日中英のコピー、モバイルファーストのレイアウト、CTA と問い合わせ導線の提案。初見の人が 30 秒で理解できる形に。",
         },
         {
-          key: "ai",
-          title: "AI ワークフロー支援",
-          desc: "再利用できるプロンプト体系と AI ツールの組み合わせで、コンテンツ制作・調査・運用を高速化。それでも品位は損ないません。",
+          key: "listing",
+          title: "商品ページ & ローカル集客",
+          desc: "タイトル、訴求ポイント、説明文、FAQ、CTA を整理し、すぐ動ける短い改善チェックリスト付きでお渡しします。",
         },
       ],
     },
     portfolio: {
-      label: "主な実績",
-      heading: "旅行・コンテンツ・コマースの最近のプロジェクト。",
+      label: "実績の例",
+      heading: "スモールビジネスの伝え方を整えた事例。",
       caseLabel: "Case",
-      rowRole: "ロール",
+      rowProblem: "課題",
       rowDid: "やったこと",
-      rowResult: "成果 / 価値",
+      rowDeliverables: "成果物",
+      rowResult: "結果",
       items: [
-        {
-          key: "hokkaido",
-          name: "北海道 旅行商品の企画",
-          role: "プロダクト運用・企画",
-          did: "国際旅客向けに、貸切ツアー、スキーキャンプ、シーズン別ルートを設計し、売りどころから行程まで商品ブリーフを構築。",
-          result: "社内の粗いアイデアから、中国語・英語チャネルで即公開できる商品へと整いました。",
-          tag: "Travel",
-        },
         {
           key: "ski",
-          name: "日本ジュニア スキーキャンプ キャンペーン",
-          role: "コンテンツ & プロダクト リード",
-          did: "在日中国語ファミリー向けの冬季スキーキャンプについて、見出しから FAQ まで保護者目線の商品メッセージを設計。",
-          result: "保護者がプライベートグループ内でそのままシェアできる、信頼できる物語が出来上がりました。",
-          tag: "Campaign",
+          name: "インバウンド スキーキャンプ・バイリンガル LP",
+          tag: "インバウンド",
+          problem:
+            "北海道の小規模スキーキャンプ。ページはあるものの、海外の保護者が中身・対象・申込方法を把握できなかった。",
+          did: "保護者の疑問順にページ構成を組み直し、見出しと FAQ を書き直し、明確な問い合わせ導線を追加。",
+          deliverables: "ワンページの構成、コピー、FAQ、CTA 提案。",
+          result: "保護者がプライベートグループでそのまま共有できる形になりました。",
         },
         {
-          key: "ecom",
-          name: "EC ビジュアル企画",
-          role: "出品 & ビジュアル設計",
-          did: "Ozon と TikTok Shop の商品について、画像と売りどころの構造を設計し、ビジュアルをエンドツーエンドでブリーフ。",
-          result: "各マーケットでネイティブに見える商品ページと、運営チームが使い回せるテンプレートが残りました。",
-          tag: "E-commerce",
+          key: "tour",
+          name: "北海道ローカルツアー・商品ページ刷新",
+          tag: "商品ページ",
+          problem:
+            "現地ガイドのツアーは内容は誠実だが、タイトルが曖昧で訴求が立っておらず、一覧に埋もれていた。",
+          did: "タイトル・Top3 の訴求・説明文を書き直し、短い FAQ と明確な CTA を整備。",
+          deliverables: "新タイトル、訴求リスト、説明文、FAQ、アクションリスト。",
+          result: "一般的なアクティビティ投稿ではなく、具体的な体験として読めるようになりました。",
         },
         {
-          key: "multi",
-          name: "多言語 Web サイト設計",
-          role: "情報設計",
-          did: "観光会社の Web サイトを簡体字中国語、英語、日本語、繁体字中国語、ベトナム語、タイ語、スペイン語で構造化。",
-          result: "各言語の習慣を尊重しつつ、ブランドの語り口を統一できる骨格を作りました。",
-          tag: "Web",
+          key: "shop",
+          name: "小規模サービス業・月次コンテンツ計画",
+          tag: "コンテンツ & SNS",
+          problem: "投稿が不定期で、毎週何を話せばよいか定まっていなかった。",
+          did: "3 つのテーマで月次プランを構築。キャプション草案とプラットフォーム別の方向性を提供。",
+          deliverables: "月次プラン、キャプション、投稿アイデア、簡易レビュー。",
+          result: "投稿が落ち着いた頻度になり、新規フォロワーにも伝わるようになりました。",
         },
         {
-          key: "ai",
-          name: "AI 活用 コンテンツ体制",
-          role: "ワークフロー設計",
-          did: "コンテンツ、出品コピー、ビジュアル方針をカバーする再利用可能なプロンプト ワークフローを構築。",
-          result: "日常のコンテンツ初稿の時間を大きく短縮しつつ、トーンとレビュー品質を維持できました。",
-          tag: "AI",
+          key: "site",
+          name: "バイリンガル ワンページ Web サイト",
+          tag: "Web サイト",
+          problem: "サービスは頭の中にあるが、見込み客に先に読んでもらえるページがなかった。",
+          did: "ワンページに整理し、バイリンガルのコピーと問い合わせ導線を設計。",
+          deliverables: "ページ構成、日中英コピー、CTA と問い合わせセクション。",
+          result: "問い合わせの段階で基礎情報が共有されている状態になりました。",
         },
       ],
     },
-    workingStyle: {
-      label: "仕事の進め方",
-      heading: "一緒に働くとき、私はこう現れます。",
+    whyMe: {
+      label: "選ばれる理由",
+      heading: "小さなチームに寄り添い、手を動かし、正直に。",
       items: [
-        "作る前に、まず正しい問いを立てます。",
-        "ビジネスゴールも、ユーザーの感情も大切にします。",
-        "速く、整理されていて、繰り返し改善できます。",
-        "文化やプラットフォームをまたいで動けます。",
-        "曖昧なアイデアを、構造化されたアウトプットに変えます。",
+        "窓口は一人。代理店的な階層も引き継ぎもありません。",
+        "日本拠点。インバウンド、ローカルサービス、北海道に近い距離感。",
+        "中国語ネイティブ、日本語と英語は日常会話レベル。バイリンガル展開に強み。",
+        "実行優先。完璧な計画より、まず分かりやすい v1。",
+        "書く前に、本当に必要な問いから始めます。",
+        "落ち着いて、整理して、期日どおりに。小さな予算と進行を尊重します。",
       ],
     },
-    testimonials: {
-      label: "いただいた言葉",
-      heading: "コラボレーターからのコメント。",
+    packages: {
+      label: "サービスパッケージ",
+      heading: "始めやすいシンプルなパッケージ。",
+      subheading: "カスタムも歓迎 —— あくまで分かりやすい出発点です。",
+      fromLabel: "From",
       items: [
         {
-          quote: "采宥さんは主体的で丁寧、散らばったアイデアを実行に変えるのがとても上手です。",
-          who: "プロジェクト共同担当者",
+          key: "audit",
+          name: "リスティング診断",
+          price: "$300",
+          desc: "1 ページのレビュー:タイトル・訴求・説明文・FAQ・CTA を改善し、短い改善チェックリストを納品。",
         },
         {
-          quote: "コンテンツとビジネス、両方を理解してくれるので、一緒に仕事をして本当に楽です。",
-          who: "旅行業界のパートナー",
+          key: "sprint",
+          name: "LP & コピー スプリント",
+          price: "$800",
+          desc: "ワンページ構成、英語またはバイリンガルのコピー、モバイルファーストのレイアウト、CTA / 導線提案。",
+        },
+        {
+          key: "monthly",
+          name: "月次コンテンツ支援",
+          price: "$1,500 / 月",
+          desc: "月次プラン、キャプション、投稿アイデア、Instagram / 小紅書 の方向性、簡易レビュー。",
         },
       ],
     },
     contact: {
       label: "お問い合わせ",
-      heading: "一緒に、",
-      headingItalic: "わかりやすく、あたたかい",
-      intro:
-        "旅行商品、出品ページの作り直し、Web サイトのリニューアル、AI ワークフロー —— あなたが今取り組んでいることをぜひ聞かせてください。",
+      heading: "あなたのサービスを、",
+      headingItalic: "伝わる形に整えましょう。",
+      intro: "事業内容と改善したいポイントを少し教えてください。通常 1 日以内にお返事します。",
       cta: "一緒に働く",
       links: [
         { label: "メール", value: "wuchioyuk@gmail.com" },
@@ -605,7 +588,7 @@ export const translations: Record<LanguageCode, Dict> = {
         { label: "Instagram", value: "@portfolio" },
       ],
     },
-    footer: "札幌から、ていねいに。",
+    footer: "札幌から、スモールビジネスのマーケ支援を。",
   },
 
   es: {
@@ -614,165 +597,152 @@ export const translations: Record<LanguageCode, Dict> = {
       home: "Inicio",
       about: "Sobre mí",
       services: "Servicios",
-      portfolio: "Portafolio",
-      workingStyle: "Forma de trabajar",
-      testimonials: "Testimonios",
+      portfolio: "Trabajos",
+      whyMe: "Por qué yo",
+      packages: "Paquetes",
       contact: "Contacto",
       cta: "Hablemos",
       languageLabel: "Idioma",
     },
     hero: {
-      locationTag: "Basada en Sapporo, Japón · Disponible para trabajo remoto",
-      title1: "Hola, soy",
-      name: "Caiyu Wu",
-      title2: "— operadora intercultural de producto y contenido, con base en Japón.",
-      subtitle:
-        "Ayudo a marcas, empresas de viajes y proyectos digitales a convertir ideas en productos claros, contenido persuasivo y experiencias online listas para lanzar.",
-      ctaWork: "Ver mi trabajo",
-      ctaContact: "Trabajemos juntos",
-      tags: [
-        "Operaciones de producto",
-        "Diseño de producto turístico",
-        "Estrategia de contenido",
-        "Fichas de e-commerce",
-        "Flujos con IA",
-        "Comunicación multilingüe",
-      ],
+      locationTag: "Basada en Sapporo, Japón · Trabajo remoto",
+      headline: "Soporte remoto de crecimiento y marketing de contenido para pequeñas empresas",
+      subheadline:
+        "Ayudo a pequeñas empresas a convertir sus servicios en sitios web claros, contenido social y páginas de listado que los clientes entienden y sobre los que actúan.",
+      ctaServices: "Ver servicios",
+      ctaWork: "Ver ejemplos",
+      tags: ["Contenido y redes", "Landing pages", "Listados y local", "Copy bilingüe", "Turismo inbound"],
     },
     about: {
       label: "Sobre mí",
-      heading: "Una operadora cercana que convierte ideas dispersas en",
-      headingItalic: "ejecución estructurada.",
+      heading: "Marketing práctico para",
+      headingItalic: "pequeñas empresas.",
       paragraphs: [
-        "Vivo en Sapporo, Japón, y trabajo como product manager y operadora de productos turísticos en un entorno japonés e internacional. Mi lengua materna es el chino y me muevo con soltura entre mandarín, inglés y japonés.",
-        "Mi experiencia abarca planificación de productos de viaje, fichas en OTAs, contenido para redes sociales, visuales de e-commerce, estructura de sitios web y productividad asistida por IA. Mi fortaleza no es solo escribir contenido: es entender el objetivo de negocio detrás del contenido y diseñar la entrega para que ese objetivo realmente aterrice.",
-        "Quienes han trabajado conmigo suelen describirme como cercana, responsable y proactiva — buena para ver las fortalezas de las demás personas y para convertir ideas dispersas en entregables estructurados y ejecutables.",
+        "Soy Lori, vivo en Sapporo, Japón. Trabajo con pequeñas empresas que necesitan comunicar mejor — no soy una agencia grande, solo una persona constante y manos a la obra que termina lo que empieza.",
+        "Mi día a día es contenido, copy, sitios web simples y estructura de páginas de listado. Estoy especialmente cerca del turismo inbound, las experiencias locales, Hokkaido y los negocios de esquí — pero el mismo enfoque sirve para cualquier pequeño negocio de servicios que necesite presentarse bien online.",
+        "Chino nativo, con japonés e inglés conversacional. Honesta, ordenada y puntual.",
       ],
       facts: [
         { k: "Ubicación", v: "Sapporo, JP" },
-        { k: "Idiomas", v: "中 · EN · 日 · ES" },
-        { k: "Rol", v: "PM / Operadora" },
+        { k: "Idiomas", v: "中 · EN · 日" },
+        { k: "Enfoque", v: "Pequeña empresa" },
         { k: "Modalidad", v: "Remoto" },
       ],
     },
     services: {
-      label: "En qué puedo ayudarte",
-      heading: "Cinco formas concretas en las que me integro a tu equipo.",
+      label: "Servicios",
+      heading: "Tres formas concretas de apoyar tu negocio.",
       items: [
-        {
-          key: "travel",
-          title: "Producto turístico y fichas en OTAs",
-          desc: "Planificación de rutas, descripciones de producto, optimización de fichas y copy orientado al cliente que realmente convierte curiosos en reservas.",
-        },
         {
           key: "content",
           title: "Contenido y redes sociales",
-          desc: "Contenido tipo Xiaohongshu, Instagram y Threads, ideas de campañas y adaptación bilingüe que mantiene tono e intención al cruzar mercados.",
-        },
-        {
-          key: "ecom",
-          title: "Fichas de e-commerce",
-          desc: "Estructura de propuestas de valor, conceptos visuales y materiales listos para marketplaces como Ozon y TikTok Shop.",
+          desc: "Planes mensuales, copy para publicaciones, ideas y una dirección clara para Instagram, Xiaohongshu o Threads — con tu voz, no una plantilla.",
         },
         {
           key: "web",
-          title: "Sitio web y arquitectura de marca",
-          desc: "Estructura de landings, páginas de servicio, copy del sitio y contenido multilingüe para marcas con vocación internacional.",
+          title: "Sitio web y landing page",
+          desc: "Estructura de una página, copy en inglés o bilingüe, layout mobile-first y sugerencias de CTA y flujo de contacto — para que un desconocido entienda tu oferta en 30 segundos.",
         },
         {
-          key: "ai",
-          title: "Flujos de trabajo con IA",
-          desc: "Sistemas de prompts reutilizables y herramientas de IA para acelerar contenido, investigación, planificación y operaciones sin perder buen gusto.",
+          key: "listing",
+          title: "Listados y crecimiento local",
+          desc: "Títulos más claros, propuestas de valor afinadas, descripciones, FAQs y CTAs para tus páginas o fichas — con una lista corta y práctica de acciones.",
         },
       ],
     },
     portfolio: {
-      label: "Trabajos seleccionados",
-      heading: "Proyectos recientes en viajes, contenido y e-commerce.",
+      label: "Trabajos destacados",
+      heading: "Algunos ejemplos de cómo ayudo a pequeñas empresas a presentarse online.",
       caseLabel: "Caso",
-      rowRole: "Mi rol",
+      rowProblem: "Problema",
       rowDid: "Qué hice",
-      rowResult: "Resultado / Valor",
+      rowDeliverables: "Entregables",
+      rowResult: "Resultado",
       items: [
-        {
-          key: "hokkaido",
-          name: "Productos turísticos en Hokkaido",
-          role: "Product Operator & Planner",
-          did: "Diseñé tours privados, campamentos de esquí y rutas estacionales para viajeros internacionales, construyendo el brief completo del producto, desde propuestas de valor hasta itinerarios.",
-          result:
-            "Los productos pasaron de ideas internas rudimentarias a ofertas listas para publicarse en canales en chino e inglés.",
-          tag: "Viajes",
-        },
         {
           key: "ski",
-          name: "Campaña de campamentos de esquí para jóvenes en Japón",
-          role: "Contenido y producto",
-          did: "Creé mensajes pensados para familias hispanas y chinas en Japón sobre un campamento de esquí de invierno, desde el titular hasta las FAQ.",
-          result:
-            "Una narrativa consistente y confiable que las familias podían compartir en grupos privados sin más explicación.",
-          tag: "Campaña",
+          name: "Campamento de esquí inbound — Landing bilingüe",
+          tag: "Turismo inbound",
+          problem:
+            "Un pequeño campamento de esquí en Hokkaido tenía una página básica, pero las familias en el extranjero no podían saber qué incluía, para quién era ni cómo reservar.",
+          did: "Reestructuré la página según las dudas de las familias, reescribí el titular y el FAQ, y añadí un flujo de contacto claro.",
+          deliverables: "Estructura bilingüe de una página, copy, FAQ, sugerencias de CTA.",
+          result: "Las familias podían compartir la página en grupos privados sin más explicación.",
         },
         {
-          key: "ecom",
-          name: "Planificación visual para e-commerce",
-          role: "Listing & Visual Planner",
-          did: "Planifiqué imágenes y estructuras de propuesta de valor para fichas en Ozon y TikTok Shop, con briefs visuales completos.",
-          result:
-            "Fichas que se veían nativas de cada marketplace y dejaron una plantilla visual reutilizable para el equipo de operaciones.",
-          tag: "E-commerce",
+          key: "tour",
+          name: "Tour local en Hokkaido — Refresh de listado",
+          tag: "Listados",
+          problem:
+            "Un guía local tenía contenido honesto, pero un título vago y poca claridad en sus propuestas de valor.",
+          did: "Reescribí el título, las 3 propuestas principales y la descripción; añadí un FAQ breve y un único CTA enfocado.",
+          deliverables: "Nuevo título, propuestas de valor, descripción, FAQ, checklist.",
+          result: "El listado se lee como una experiencia concreta y real, no como un post genérico.",
         },
         {
-          key: "multi",
-          name: "Planificación de sitio web multilingüe",
-          role: "Arquitecta de información",
-          did: "Estructuré el sitio de una empresa turística en chino simplificado, inglés, japonés, chino tradicional, vietnamita, tailandés y español.",
-          result:
-            "Una columna vertebral coherente que respetaba cada idioma y mantenía la voz de marca consistente.",
-          tag: "Web",
+          key: "shop",
+          name: "Pequeño negocio — Plan mensual de contenido",
+          tag: "Contenido y redes",
+          problem: "Una pequeña empresa publicaba de forma irregular y no sabía qué decir cada semana.",
+          did: "Armé un plan mensual sobre tres temas simples, redacté borradores de copy y di dirección por plataforma.",
+          deliverables: "Plan mensual, borradores de copy, ideas de publicación, revisión ligera.",
+          result: "Las publicaciones se volvieron constantes y con una historia clara para nuevos seguidores.",
         },
         {
-          key: "ai",
-          name: "Sistema de contenido asistido por IA",
-          role: "Diseñadora de flujos",
-          did: "Construí flujos de prompts reutilizables para contenido, copy de fichas y dirección visual del día a día.",
-          result:
-            "Reduje significativamente el tiempo de borradores diarios manteniendo tono y calidad listos para revisión.",
-          tag: "IA",
+          key: "site",
+          name: "Sitio web bilingüe de una página",
+          tag: "Sitio web",
+          problem: "Un pequeño operador tenía sus servicios claros, pero nada online que los clientes pudieran leer antes de contactarle.",
+          did: "Mapeé la oferta en una sola página, escribí copy bilingüe y diseñé un flujo simple de contacto.",
+          deliverables: "Estructura, copy en inglés y chino, sección de CTA y contacto.",
+          result: "Las consultas llegaban con más contexto, porque la página ya respondía lo básico.",
         },
       ],
     },
-    workingStyle: {
-      label: "Mi forma de trabajar",
-      heading: "Así aparezco cuando trabajamos juntas.",
+    whyMe: {
+      label: "Por qué trabajar conmigo",
+      heading: "Cercana a equipos pequeños, manos a la obra y honesta.",
       items: [
-        "Antes de crear, hago las preguntas correctas.",
-        "Cuido tanto los objetivos de negocio como las emociones del usuario.",
-        "Soy rápida, organizada y dispuesta a iterar.",
-        "Sé trabajar entre culturas y plataformas distintas.",
-        "Convierto ideas confusas en entregables estructurados.",
+        "Una sola persona, un solo punto de contacto — sin capas de agencia.",
+        "Basada en Japón, cerca del turismo inbound, los servicios locales y Hokkaido.",
+        "Chino nativo, japonés e inglés conversacional — útil para lanzamientos bilingües.",
+        "Práctica y ejecución primero — prefiero un v1 claro antes que planear de más.",
+        "Pregunto lo que importa antes de escribir, para que el contenido encaje con tu negocio.",
+        "Calmada, ordenada y puntual. Respeto los presupuestos y tiempos pequeños.",
       ],
     },
-    testimonials: {
-      label: "Palabras amables",
-      heading: "Lo que dicen quienes han colaborado conmigo.",
+    packages: {
+      label: "Paquetes de servicio",
+      heading: "Paquetes simples para empezar.",
+      subheading: "Alcance personalizado bienvenido — esto es solo un punto de partida claro.",
+      fromLabel: "Desde",
       items: [
         {
-          quote:
-            "Caiyu es proactiva, atenta y muy buena convirtiendo ideas dispersas en ejecución concreta.",
-          who: "Colaborador de proyecto",
+          key: "audit",
+          name: "Auditoría de ficha o página",
+          price: "$300",
+          desc: "Revisión de una ficha o página de servicio: mejorar título, propuestas de valor, descripción, FAQ y CTA, con una checklist práctica.",
         },
         {
-          quote: "Trabajar con ella es sencillo porque entiende tanto el contenido como el negocio.",
-          who: "Socio de la industria turística",
+          key: "sprint",
+          name: "Sprint de Landing & Copy",
+          price: "$800",
+          desc: "Estructura de una página; copy en inglés o bilingüe; layout mobile-first; sugerencias de CTA y flujo de contacto.",
+        },
+        {
+          key: "monthly",
+          name: "Soporte mensual de contenido",
+          price: "$1,500 / mes",
+          desc: "Plan mensual; copy e ideas de publicación; dirección para Instagram / Xiaohongshu; revisión básica de desempeño.",
         },
       ],
     },
     contact: {
       label: "Contacto",
-      heading: "Construyamos algo",
-      headingItalic: "claro y cálido",
+      heading: "Hagamos que tu oferta sea",
+      headingItalic: "fácil de entender.",
       intro:
-        "Ya sea un producto de viaje, una ficha, un sitio web o un flujo de IA — me encantaría escuchar en qué estás trabajando.",
+        "Cuéntame un poco sobre tu negocio y qué te gustaría mejorar. Suelo responder en menos de un día.",
       cta: "Trabajemos juntas",
       links: [
         { label: "Email", value: "wuchioyuk@gmail.com" },
@@ -781,6 +751,6 @@ export const translations: Record<LanguageCode, Dict> = {
         { label: "Instagram", value: "@portfolio" },
       ],
     },
-    footer: "Hecho con cariño en Sapporo, Japón.",
+    footer: "Soporte de marketing para pequeñas empresas, desde Sapporo, Japón.",
   },
 };
