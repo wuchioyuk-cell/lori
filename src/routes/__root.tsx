@@ -78,18 +78,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lori — Remote Growth & Content Marketing for Small Businesses" },
+      { title: "Lori — Remote Marketing Operations, Content & AI Workflow Support" },
       {
         name: "description",
         content:
-          "Lori helps small businesses turn their services into clear websites, social content, and listing pages that customers can understand and act on. Based in Sapporo, Japan.",
+          "Lori helps small businesses and remote teams organize content, customer-facing information, marketing workflows, and practical AI-assisted systems. Based in Japan.",
       },
       { name: "author", content: "Lori" },
-      { property: "og:title", content: "Lori — Remote Growth & Content Marketing for Small Businesses" },
+      { property: "og:title", content: "Lori — Remote Marketing Operations, Content & AI Workflow Support" },
       {
         property: "og:description",
         content:
-          "Practical content, websites, and listing support for small businesses — from Sapporo, Japan.",
+          "Practical marketing operations, content systems, and AI workflow support for remote teams and small businesses.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

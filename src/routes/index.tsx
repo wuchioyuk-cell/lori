@@ -19,11 +19,11 @@ import { LanguageSwitcher } from "@/i18n/LanguageSwitcher";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Lori — Remote Growth & Content Marketing for Small Businesses" },
+      { title: "Lori — Remote Marketing Operations, Content & AI Workflow Support" },
       {
         name: "description",
         content:
-          "Lori helps small businesses turn their services into clear websites, social content, and listing pages that customers can understand and act on. Based in Sapporo, Japan.",
+          "Lori helps small businesses and remote teams organize content, customer-facing information, marketing workflows, and practical AI-assisted systems. Based in Japan.",
       },
     ],
   }),
@@ -183,7 +183,7 @@ function Services() {
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-2">
           {t.services.items.map((s, i) => {
-            const Icon = serviceIcons[i] ?? PenSquare;
+            const Icon = serviceIcons[i] ?? Globe2;
             return (
               <article
                 key={s.key}
@@ -319,15 +319,8 @@ function Packages() {
               }`}
             >
               <h3 className="font-display text-lg font-bold">{p.name}</h3>
-              <div className="mt-4 flex items-baseline gap-1.5">
-                {/^\$|^\d/.test(p.price) && (
-                  <span className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
-                    {t.packages.fromLabel}
-                  </span>
-                )}
-                <span className="font-display text-3xl font-extrabold tracking-tight">
-                  {p.price}
-                </span>
+              <div className="mt-4 inline-flex self-start rounded-full bg-foreground/10 px-3 py-1 text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
+                {p.price}
               </div>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
               <a
