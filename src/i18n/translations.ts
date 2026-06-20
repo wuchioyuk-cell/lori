@@ -186,14 +186,14 @@ export const translations: Record<LanguageCode, Dict> = {
       items: [
         {
           key: "travel-ops",
-          name: "Japan Travel Business — Marketing & Operations Support",
+          name: "Japan Travel Business — Platform Itinerary & Customer Acquisition Support",
           tag: "Current Experience",
           problem:
-            "A travel business needs clear customer-facing content, organized service information, platform materials, and reliable execution to build customer trust.",
-          did: "Support marketing operations, organize service information, improve customer-facing materials, and help make complex travel services easier for customers to understand.",
-          deliverables: "Service descriptions, platform content, customer-facing copy, content execution support, and operational notes.",
+            "A travel business needed a clearer way to turn itinerary ideas and service details into platform-ready products that could attract real customer inquiries.",
+          did: "Built and improved itinerary pages on travel platforms, organized service information, clarified selling points, and shaped customer-facing content to support inquiry generation.",
+          deliverables: "Platform itinerary pages, service descriptions, customer-facing copy, selling points, FAQ-style content, and operational notes.",
           result:
-            "The work connects content clarity, service packaging, inquiry flow, and day-to-day execution in a real business environment.",
+            "Platform-based itinerary content helped bring in real customer leads, connecting content clarity, service packaging, inquiry flow, and day-to-day execution.",
         },
         {
           key: "saas",
@@ -380,13 +380,13 @@ export const translations: Record<LanguageCode, Dict> = {
       items: [
         {
           key: "travel-ops",
-          name: "日本旅行社 · 营销与运营支持",
+          name: "日本旅行社 · 平台行程获客与运营支持",
           tag: "当前经验",
           problem:
-            "旅行类业务需要清楚的客户内容、整理好的服务信息、平台素材和稳定执行,才能建立客户信任。",
-          did: "支持营销运营,整理服务信息,优化客户看得到的内容,把复杂的旅行服务变得更容易理解。",
-          deliverables: "服务说明、平台内容、客户页面文案、内容执行支持、运营记录与整理。",
-          result: "这类工作把内容清晰度、服务包装、询盘流程和日常执行连接在了一起,是正在发生的真实业务经验。",
+            "旅行类业务需要把行程想法和服务细节整理成平台上能被客户理解、愿意咨询的产品页面。",
+          did: "在旅游平台建立并优化行程页面,整理服务信息,提炼卖点,把客户看得到的内容做得更清楚,用于支持询盘和获客。",
+          deliverables: "平台行程页、服务说明、客户页面文案、卖点整理、FAQ 式内容、运营记录。",
+          result: "通过平台建立的行程获得了真实客户线索,把内容清晰度、服务包装、询盘流程和日常执行连接成了实际获客闭环。",
         },
         {
           key: "saas",
